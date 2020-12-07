@@ -1,0 +1,37 @@
+class Solution {
+    public static String whoLikesIt(String... names) {
+        //Do your magic here
+        
+      // Initialize output String
+      String output = "";
+      
+      // Check length of input array
+      if (names.length > 3) {
+        
+        // If more than 3 names, calculate the number of array items remaining (minus first two who are named)
+        int remainderSize = names.length - 2;
+        
+        // Convert remainder number to String for concatenation
+        String remainderAsString = Integer.toString(remainderSize);
+        
+        // Assemble output message
+        output = names[0] + ", " + names [1] + " and " + remainderAsString + " others like this";
+      }
+      // If number of items in array is 3, all likers are named in output message
+      else if (names.length == 3) {
+        output = names[0] + ", " + names[1] + " and " + names[2] + " like this";
+      }
+      // Same idea as above but for 2
+      else if (names.length == 2) {
+        output = names[0] + " and " + names[1] + " like this";
+      }
+      // If there is only one liker
+      else if (names.length == 1) {
+        output = names[0] + " likes this";
+      }
+      // If the array is empty
+      else {
+        output = "no one likes this";
+      }
+        return output;
+    }
